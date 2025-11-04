@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import api from "@/services/api";
 import { useRouter } from "next/navigation";
+import type { AxiosError } from "axios";
 
 export function SignupForm({
   className,
@@ -58,19 +59,19 @@ export function SignupForm({
       alert("Signup successful!");
       console.log(res);
       form.reset();
-    } catch (err) {
-      if (
-        typeof err === "object" &&
-        err !== null &&
-        "response" in err &&
-        typeof (err as any).response === "object" &&
-        (err as any).response !== null
-      ) {
-        const response = (err as any).response;
-        if (response.data?.message) {
-          setErrors(response.data.message);
-        } else if (response.data?.errors) {
-          setErrors(response.data.errors.map((e: any) => e.msg).join(", "));
+      router.push("/login");
+    } catch (error) {
+      const err = error as AxiosError<{
+        message?: string;
+        errors?: { msg: string }[];
+      }>;
+
+      if (err.response) {
+        const data = err.response.data;
+        if (data?.message) {
+          setErrors(data.message);
+        } else if (data?.errors) {
+          setErrors(data.errors.map((e) => e.msg).join(", "));
         } else {
           setErrors("Signup failed. Please try again.");
         }
@@ -79,7 +80,6 @@ export function SignupForm({
       }
     } finally {
       setLoading(false);
-      router.push("/login");
     }
   };
 
@@ -121,7 +121,7 @@ export function SignupForm({
                 />
               </Field>
               <Field>
-                <Field className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4">
                   <Field>
                     <FieldLabel htmlFor="password">Password</FieldLabel>
                     <Input
@@ -142,7 +142,7 @@ export function SignupForm({
                       required
                     />
                   </Field>
-                </Field>
+                </div>
                 <FieldDescription>
                   Must be at least 8 characters long.
                 </FieldDescription>

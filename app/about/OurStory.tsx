@@ -14,9 +14,9 @@ export default function OurStory() {
             exhausting and time-consuming task of driving through neighborhoods,
             hoping to spot &quot;For Rent&quot; signs. <br /> <br /> We realized
             there had to be a better way. In today&apos;s digital age, why
-            should finding a home be so analog and inefficient? That's when we
-            decided to create a platform that would centralize property listings
-            and make the search process intuitive and comprehensive.
+            should finding a home be so analog and inefficient? That&apos;s when
+            we decided to create a platform that would centralize property
+            listings and make the search process intuitive and comprehensive.
           </p>
         </div>
         <div className="w-[50%] flex justify-center items-center gap-y-[10px]">

@@ -1,7 +1,6 @@
 "use client";
 
-import { useUser } from "@/context/user-context"; // import context
-
+import { useUser } from "@/context/user-context";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,13 +20,13 @@ import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import api from "@/services/api";
 import { useRouter } from "next/navigation";
+import type { AxiosError } from "axios";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
   const router = useRouter();
-
   const [loading, setLoading] = useState(false);
   const { setUser } = useUser();
 
@@ -43,7 +42,6 @@ export function LoginForm({
 
     try {
       const res = await api.post("auth/login", { email, password });
-
       const loggedInUser = res.data.user;
 
       // Save in context
@@ -51,12 +49,17 @@ export function LoginForm({
 
       alert(`Welcome ${loggedInUser.full_name}!`);
       form.reset();
-    } catch (err: any) {
-      alert(err.response?.data?.message || "Login failed");
+      router.push("/");
+    } catch (error) {
+      const err = error as AxiosError<{ message?: string }>;
+
+      if (err.response?.data?.message) {
+        alert(err.response.data.message);
+      } else {
+        alert("Login failed");
+      }
     } finally {
       setLoading(false);
-
-      router.push("/");
     }
   };
 
