@@ -57,11 +57,13 @@ export default function Page() {
 
       <div className="w-[70%] h-[400px] border mx-auto">
         <img
-          src={`${
-            process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
-          }/uploads/${property.image}`}
-          alt="house"
-          className="w-[100%] h-[100%]"
+          src={
+            property.image
+              ? `${process.env.NEXT_PUBLIC_API_URL}uploads/${property.image}`
+              : ""
+          }
+          alt="house image"
+          className="w-[100%] h-[100%] object-cover"
         />
       </div>
 
