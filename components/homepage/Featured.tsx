@@ -75,11 +75,11 @@ export default function Featured({ searchTerm }: FeaturedProps) {
                 <img
                   src={
                     property.image
-                      ? `http://localhost:8000/uploads/${property.image}`
-                      : "/placeholder.jpg"
+                      ? `${process.env.NEXT_PUBLIC_API_URL}uploads/${property.image}`
+                      : ""
                   }
                   alt="house image"
-                  className="w-[100%] h-[100%] object-cover rounded-t-[10px]"
+                  className="w-[100%] h-[100%] object-cover"
                 />
               </div>
 
