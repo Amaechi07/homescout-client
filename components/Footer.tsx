@@ -1,11 +1,14 @@
 import Link from "next/link";
 import React from "react";
+import styles from "./Footer.module.css";
 import { BiEnvelope } from "react-icons/bi";
 import { BsTelephone } from "react-icons/bs";
 
 export default function Footer() {
   return (
-    <div className="max-w-[1920px] mx-auto bg-[#1F2937] py-[50px] text-white mt-[50px]">
+    <div
+      className={`${styles.footerContainer}max-w-[1920px] mx-auto bg-[#1F2937] py-[50px] text-white mt-[50px]`}
+    >
       <div className="w-[80%] mx-auto  flex justify-between items-start">
         <div className=" w-[20%] h-auto">
           <h3 className="font-[700] text-[20px]">HomeScout</h3>
