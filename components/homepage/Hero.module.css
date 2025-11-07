@@ -9,3 +9,107 @@
   background-size: cover;
   background-position: center;
 }
+
+@media (max-width: 768px) {
+  .bg {
+    height: 100vh;
+    padding: 20px;
+  }
+
+  .bg > div {
+    width: 80% !important;
+    padding: 30px !important;
+  }
+
+  .bg h1 {
+    font-size: 32px !important;
+  }
+
+  .bg p {
+    font-size: 16px !important;
+  }
+
+  .bg input {
+    padding: 15px !important;
+  }
+
+  .bg button {
+    font-size: 14px !important;
+    padding: 12px 20px !important;
+  }
+}
+
+/* --- Mobile Large (max width: 425px) --- */
+@media (max-width: 425px) {
+  .bg > div {
+    width: 90% !important;
+    padding: 25px !important;
+  }
+
+  .bg h1 {
+    font-size: 28px !important;
+  }
+
+  .bg p {
+    font-size: 15px !important;
+  }
+
+  .bg input {
+    padding: 12px !important;
+  }
+
+  .bg button {
+    font-size: 13px !important;
+    padding: 10px 18px !important;
+  }
+}
+
+/* --- Mobile Medium (max width: 375px) --- */
+@media (max-width: 375px) {
+  .bg > div {
+    width: 95% !important;
+    padding: 20px !important;
+  }
+
+  .bg h1 {
+    font-size: 24px !important;
+  }
+
+  .bg p {
+    font-size: 14px !important;
+  }
+
+  .bg input {
+    padding: 10px !important;
+  }
+
+  .bg button {
+    font-size: 12px !important;
+    padding: 10px 16px !important;
+  }
+}
+
+/* --- Mobile Small (max width: 320px) --- */
+@media (max-width: 320px) {
+  .bg > div {
+    width: 100% !important;
+    padding: 15px !important;
+  }
+
+  .bg h1 {
+    font-size: 22px !important;
+  }
+
+  .bg p {
+    font-size: 13px !important;
+  }
+
+  .bg input {
+    padding: 8px !important;
+  }
+
+  .bg button {
+    font-size: 12px !important;
+    padding: 8px 14px !important;
+  }
+}
