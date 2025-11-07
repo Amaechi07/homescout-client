@@ -17,7 +17,7 @@ interface User {
 interface UserContextType {
   user: User | null;
   setUser: (user: User | null) => void;
-  logout: () => void; // add logout to context
+  logout: () => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
